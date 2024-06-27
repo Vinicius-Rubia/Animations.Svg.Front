@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="line-container">
+    <svg viewBox="0 0 78 2373" fill="none" preserveAspectRation="xMidYMax meet">
+      <path
+        d="M49.5 1L39.5 905M39.5 905L76 926.5V968L39.5 989L2 968V926.5L39.5 905ZM39.5 905V930.5C32.8333 936.333 23.5 951.1 39.5 963.5C55.5 975.9 4.5 989 39.5 1018.5V2294M39.5 2294L62 2295C65 2294.67 70.4 2297.9 68 2313.5C68 2330.3 68 2357.83 68 2369.5L39.5 2353L9 2369.5L10 2301.5C9 2298.33 13.5 2292.4 39.5 2294Z"
+        stroke="#FF2222" stroke-width="3" />
+    </svg>
+    <div>
+
+      <section class="one">
+        <h1 class="scroll" data-rate=".4" data-direction="vertical">ocean stuff</h1>
+      </section>
+
+      <section class="two">
+        <h1 class="scroll" data-rate=".2" data-direction="vertical">omg scroll</h1>
+        <p>bgi watemark</p>
+      </section>
+
+      <script>
+        let path = document.querySelector("path");
+        let pathLength = path.getTotalLength();
+
+        path.style.strokeDasharray = pathLength + " " + pathLength;
+
+
+        path.style.strokeDashoffset = pathLength;
+
+        window.addEventListener("scroll", () => {
+          var scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+          var drawLength = pathLength * scrollPercentage;
+          path.style.strokeDashoffset = pathLength - drawLength;
+        })
+      </script>
+</body>
+
+</html>

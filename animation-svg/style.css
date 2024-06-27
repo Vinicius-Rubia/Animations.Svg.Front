@@ -1,0 +1,33 @@
+.container {
+  height: 500px;
+  width: 500px;
+}
+
+.path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: dash 2s linear alternate both;
+}
+
+.path.fill {
+  fill: none;
+  animation: fillBlue 4s linear both;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillBlue {
+  from {
+    fill: none;
+  }
+  to {
+    fill: #3FBDF1;
+  }
+}
